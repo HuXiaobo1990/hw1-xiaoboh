@@ -4,10 +4,6 @@
   <groupId>edu.cmu.lti.11791.f12.hw1</groupId>
   <artifactId>hw1-xiaoboh</artifactId>
   <version>0.0.2-SNAPSHOT</version>
-  <scm>
-  	<connection>scm:git:git@github.com:xiaobo-hu/hw1-xiaoboh.git</connection>
-  	<developerConnection>scm:git:git@github.com:xiaobo-hu/hw1-xiaoboh.git</developerConnection>
-  </scm>
   <repositories>
     <repository>
       <id>oaqa</id>
@@ -24,6 +20,10 @@
       <url>http://mu.lti.cs.cmu.edu:8081/nexus/content/repositories/course-snapshots</url>
     </snapshotRepository>
   </distributionManagement>
+  <scm>
+  	<connection>scm:git:git@github.com:xiaobo-hu/hw1-xiaoboh.git</connection>
+  	<developerConnection>scm:git:git@github.com:xiaobo-hu/hw1-xiaoboh.git</developerConnection>
+  </scm>
   <build>
     <plugins>
       <plugin>
