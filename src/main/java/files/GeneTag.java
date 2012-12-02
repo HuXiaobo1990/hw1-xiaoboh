@@ -9,6 +9,7 @@ import com.aliasi.util.AbstractExternalizable;
 import com.aliasi.util.ScoredObject;
 import com.aliasi.util.Strings;
 import java.lang.*;
+import java.net.URL;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
@@ -46,9 +47,12 @@ public class GeneTag extends JCasAnnotator_ImplBase {
     
     int end = 0,start = 0;
     String ID = null;
-    
-    File modelFile = new File("src/main/resources/lingpipe/ne-en-bio-genetag.HmmChunker");
-    System.out.println("Reading chunker from file=" + modelFile);
+    String temp = null;
+    URL base = ClassLoader.getSystemClassLoader().getResource("");
+    temp = base.toString().substring(6);
+    File modelFile = new File(temp+"ne-en-bio-genetag.HmmChunker");
+//    File modelFile = new File("src/main/resources/lingpipe/ne-en-bio-genetag.HmmChunker");
+//    System.out.println("Reading chunker from file=" + modelFile);
     
     ConfidenceChunker chunker = null;
     
@@ -83,7 +87,7 @@ public class GeneTag extends JCasAnnotator_ImplBase {
         {
             Chunk chunk = it.next();
             double conf = Math.pow(2.0,chunk.score());
-            if(conf*Math.pow(10, 11) < Math.pow(10, 10))
+            if(conf*10 < 1)
             {
               if(6 == n)
                 pos = s[i].length();
@@ -96,7 +100,7 @@ public class GeneTag extends JCasAnnotator_ImplBase {
             String name = s[i].substring(start,end);
             genetag annotation = new genetag(aJCas);
             
-            System.out.println(ID+"|"+(start-x)+" "+(end-1-y)+"|"+name);
+//            System.out.println(ID+"|"+(start-x)+" "+(end-1-y)+"|"+name);
             
             annotation.setSentenceID(ID);
             annotation.setBegin(start-x);
