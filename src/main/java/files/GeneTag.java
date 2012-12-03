@@ -47,11 +47,11 @@ public class GeneTag extends JCasAnnotator_ImplBase {
     
     int end = 0,start = 0;
     String ID = null;
-    String temp = null;
-    URL base = ClassLoader.getSystemClassLoader().getResource("");
-    temp = base.toString().substring(6);
-    File modelFile = new File(temp+"ne-en-bio-genetag.HmmChunker");
-//    File modelFile = new File("src/main/resources/lingpipe/ne-en-bio-genetag.HmmChunker");
+//    String temp = null;
+//    URL base = ClassLoader.getSystemClassLoader().getResource("");
+//    temp = base.toString().substring(6);
+//    File modelFile = new File(temp+"ne-en-bio-genetag.HmmChunker");
+    File modelFile = new File("lingpipe/ne-en-bio-genetag.HmmChunker");
 //    System.out.println("Reading chunker from file=" + modelFile);
     
     ConfidenceChunker chunker = null;
